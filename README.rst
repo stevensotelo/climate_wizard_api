@@ -609,7 +609,7 @@ Output:
 	}	
 		
 3. Installing the REST API
-=======================
+==========================
 The REST API is deployed as a standard webapp for your servlet container / Apache. The technology used is Python, specifically the libraries GDAL, Bottle and rasterstats.
 
 
@@ -644,6 +644,29 @@ The Apache configuration may look like this:
       Order deny,allow
       Allow from all
     </Directory>
+
+3.1 Install with Docker
+=======================
+You can run the application with Docker. You have two options for creating an image of this repository:
+
+
+Download image from Docker Hub:
+
+.. code-block::
+
+  docker pull stevensotelo/climatewizard:latest
+
+Build image from Dockerfile:
+
+.. code-block::
+  
+  docker build -t stevensotelo/climatewizard:latest .
+
+Run a container:
+
+.. code-block::
+  
+  docker run -p 8086:80 --name wocat -v /files/path:/mnt -d stevensotelo/climatewizard:latest
 
 
 **Table 2** Indices, acronyms and units used in the REST API
